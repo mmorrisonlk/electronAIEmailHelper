@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require('electron')
+const getEmail = require("./routes");
+
 
 const createWindow = () => {
   const win = new BrowserWindow({
