@@ -1,16 +1,7 @@
-const subjectButton = document.getElementById('subbtn');
-const bodyButton = document.getElementById('bodybtn');
-const subjectInput = document.getElementById('subjectInput');
-const bodyInput = document.getElementById('bodyInput');
+const btn = document.getElementById('btn')
+const filePathElement = document.getElementById('filePath')
 
-subjectButton.addEventListener('click', () => {
-  const subject = subjectInput.value
-  console.log(subject)
-  window.electronAPI.setSubject(subject)
-})
-
-bodyButton.addEventListener('click', () => {
-    const body = bodyInput.value
-    console.log(body)
-    window.electronAPI.setBody(body)
+btn.addEventListener('click', async () => {
+  const filePath = await window.electronAPI.openFile()
+  filePathElement.innerText = filePath
 })

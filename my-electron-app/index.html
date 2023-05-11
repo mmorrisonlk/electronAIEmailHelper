@@ -27,13 +27,11 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>Dialog</title>
   </head>
   <body>
-        Subject: <input id="subjectInput"/>
-        <button id="subbtn" type="button">Set</button>
-        Body: <input id="bodyInput"/>
-        <button id="bodybtn" type="button">Change</button>
-    <script src="./renderer.js"></script>
+    <button type="button" id="btn">Open a File</button>
+    File path: <strong id="filePath"></strong>
+    <script src='./renderer.js'></script>
   </body>
 </html>
