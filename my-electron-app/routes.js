@@ -1,14 +1,14 @@
-const fs = require('fs');
-require('dotenv').config();
-const { Configuration, OpenAIApi } = require("openai");
-const makeRequest = require('./openAI');
-const prompt = require("prompt-sync")({ sigint: true });
+// const fs = require('fs');
+// require('dotenv').config();
+// const { Configuration, OpenAIApi } = require("openai");
+// const makeRequest = require('./openAI');
+// const prompt = require("prompt-sync")({ sigint: true });
 
-let email;
+// let email;
 
-async function getEmail() {
-  const data = fs.readFileSync('./email.json', 'utf8');
-  email = JSON.parse(data)
-}
+// async function getEmail() {
+//   const data = fs.readFileSync('./email.json', 'utf8');
+//   email = JSON.parse(data)
+// }
 
-module.exports = getEmail();
+// module.exports = getEmail();
