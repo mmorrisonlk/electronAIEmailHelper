@@ -1,37 +1,28 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>AI Email Assistant!</title>
-  </head>
-  <body>
-    <h1>Subject Line:</h1>
-    <h2 id="subjectLine">Sending Email using Electron</h2>
-    <p>Email body</p>
-    <p id="bodySection">Send this to 10 friends or be sad</p>
-  </body>
-  <script src="./renderer.js"></script>
-</html> -->
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Dialog</title>
+    <title>AI Email Assistant</title>
   </head>
   <body>
-    <button type="button" id="btn">Open a File</button>
-    File path: <strong id="filePath"></strong>
-    <script src='./renderer.js'></script>
+    <h1>    
+        Subject: <strong id="subjectLine">Why?</strong> <br>
+        <input id="subjectLineInput" />
+        <button type="button" id="subjectLineButton">Update Subject</button>
+    </h1>
+    <h2>
+        Body: <strong id="bodySection">For the glory of Stana</strong> <br>
+        <input id="bodySectionInput" />
+        <button type="button" id="bodySectionButton">Update Body</button>
+    </h2>
+    <p>
+        <input id="chatGPTPrompt" />
+        <button type="button" id="chatGPTButton">Send email prompt to AI</button>
+    </p>
+
+
+    <script type='module' src='./renderer.js'></script>
   </body>
 </html>

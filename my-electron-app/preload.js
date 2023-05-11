@@ -1,5 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  openFile: () => ipcRenderer.invoke('dialog:openFile')
+  makeRequest: (prompt) => ipcRenderer.invoke('ask-chat', prompt)
 })
