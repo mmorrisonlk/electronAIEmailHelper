@@ -1,28 +1,53 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>AI Email Assistant</title>
-  </head>
-  <body>
-    <h1>    
-        Subject: <strong id="subjectLine">Why?</strong> <br>
-        <input id="subjectLineInput" />
-        <button type="button" id="subjectLineButton">Update Subject</button>
-    </h1>
-    <h2>
-        Body: <strong id="bodySection">For the glory of Stana</strong> <br>
-        <input id="bodySectionInput" />
-        <button type="button" id="bodySectionButton">Update Body</button>
-    </h2>
-    <p>
-        <input id="chatGPTPrompt" />
-        <button type="button" id="chatGPTButton">Send email prompt to AI</button>
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AI Email Assistant</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+</head>
+<div class="w3-main" style="margin-left:250px">
 
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-teal" id="subjectLine">Subject:</h1>
+      <input id="subjectLineInput" />
+      <button type="button" id="subjectLineButton">Update Subject</button>
+    </div>
+  </div>
 
-    <script type='module' src='./renderer.js'></script>
-  </body>
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-teal">Body:</h1>
+      <div id="bodySection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      <input id="bodySectionInput" />
+      <button type="button" id="bodySectionButton">Update Body</button>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-teal">Ask the AI:</h1>
+      <input id="chatGPTPrompt" />
+      <button type="button" id="chatGPTButton">Send email prompt to AI</button>
+      <p></p>
+    </div>
+  </div>
+  <script type='module' src='./renderer.js'></script>
 </html>

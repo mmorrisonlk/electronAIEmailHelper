@@ -10,6 +10,7 @@ const chatGPTButton = document.getElementById('chatGPTButton')
 const chatGPTPrompt = document.getElementById('chatGPTPrompt')
 
 subjectLineButton.addEventListener('click', async () => {
+    console.log("bueler")
     const inputSubject = subjectLineInput.value
     subjectLine.innerHTML = inputSubject;
 })
