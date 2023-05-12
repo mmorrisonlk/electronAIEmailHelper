@@ -1,8 +1,7 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 require('dotenv').config();
 const { Configuration, OpenAIApi } = require("openai");
-const axios = require('axios'); 
-// import { Configuration, OpenAIApi } from "../my-electron-app/node_modules/openai";
+// const axios = require('axios'); 
 const path = require('path')
 
 const configuration = new Configuration({
