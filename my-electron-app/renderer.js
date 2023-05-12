@@ -1,24 +1,10 @@
-const subjectLineButton = document.getElementById('subjectLineButton')
-const subjectLineInput = document.getElementById('subjectLineInput')
-const subjectLine = document.getElementById('subjectLine')
+const recipientListInput = document.getElementById('recipientList');
+const subjectLineInput = document.getElementById('subjectLine');
+const bodySectionInput = document.getElementById('bodySection');
+const sendEmailButton = document.getElementById('sendEmail')
 
-const bodySectionButton = document.getElementById('bodySectionButton')
-const bodySectionInput = document.getElementById('bodySectionInput')
-const bodySection = document.getElementById('bodySection')
-
-const chatGPTButton = document.getElementById('chatGPTButton')
-const chatGPTPrompt = document.getElementById('chatGPTPrompt')
-
-subjectLineButton.addEventListener('click', async () => {
-    console.log("bueler")
-    const inputSubject = subjectLineInput.value
-    subjectLine.innerHTML = inputSubject;
-})
-
-bodySectionButton.addEventListener('click', async () => {
-    const inputBodySection = bodySectionInput.value
-    bodySection.innerHTML = inputBodySection;
-})
+const chatGPTButton = document.getElementById('chatGPTButton');
+const chatGPTPrompt = document.getElementById('chatGPTPrompt');
 
 chatGPTButton.addEventListener('click', async () => {
     const prompt = chatGPTPrompt.value
@@ -28,3 +14,10 @@ chatGPTButton.addEventListener('click', async () => {
     bodySection.innerHTML = response
 })
 
+sendEmailButton.addEventListener('click', async () => {
+    const recipients = recipientListInput.value;
+    const subject = subjectLineInput.value;
+    const body = bodySectionInput.innerHTML;
+    console.log("Input message", recipients, subject, body)
+    await window.electronAPI.sendIt(recipients, subject, body)
+})

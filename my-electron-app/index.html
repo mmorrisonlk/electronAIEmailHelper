@@ -22,22 +22,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 </style>
 </head>
 <div class="w3-main" style="margin-left:250px">
+  <div class="w3-row">
+    <div class="w3-container">
+        <h3 class="w3-text-teal">Recipients:
+          <input id="recipientList" contenteditable="true"/>
+        </h3>
+      </div>
+  </div>
 
   <div class="w3-row">
     <div class="w3-container">
-      <h1 class="w3-text-teal" id="subjectLine">Subject:</h1>
-      <input id="subjectLineInput" />
-      <button type="button" id="subjectLineButton">Update Subject</button>
+      <h1 class="w3-text-teal">Subject:
+        <input id="subjectLine" contenteditable="true"/>
+      </h1>
     </div>
   </div>
 
   <div class="w3-row">
     <div class="w3-container">
       <h1 class="w3-text-teal">Body:</h1>
-      <div id="bodySection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      <input id="bodySectionInput" />
-      <button type="button" id="bodySectionButton">Update Body</button>
+      <h4 id="bodySection" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
     </div>
   </div>
 
@@ -45,8 +50,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <div class="w3-container">
       <h1 class="w3-text-teal">Ask the AI:</h1>
       <input id="chatGPTPrompt" />
-      <button type="button" id="chatGPTButton">Send email prompt to AI</button>
-      <p></p>
+      <button type="button" id="chatGPTButton">Send prompt to AI</button>
+    </div>
+  </div>
+  <div class="w3-row w3-padding-32">
+    <div class="w3-container w3-display-bottomright">
+      <button type="button" class= "w3-btn" id="sendEmail">Send</button>
     </div>
   </div>
   <script type='module' src='./renderer.js'></script>

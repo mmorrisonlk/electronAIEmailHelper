@@ -1,8 +1,8 @@
-const { app, BrowserWindow, ipcMain, dialog } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 require('dotenv').config();
 const { Configuration, OpenAIApi } = require("openai");
-// const axios = require('axios'); 
-const path = require('path')
+const nodemailer = require("nodemailer");
+const path = require('path');
 
 const configuration = new Configuration({
     organization: process.env.OPEN_AI_ORG,
@@ -11,33 +11,27 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-// async function makeRequest(inputPrompt) {
-//     let chatGPTResponse
-//     console.log("prompt received", inputPrompt)
-//     // axios({
-//     //     method: 'post',
-//     //     headers: {
-//     //         Authorization: 'Bearer' + process.env.OPEN_AI_KEY,
-//     //         'OpenAI-Organization': process.env.OPEN_AI_ORG
-//     //     },
-//     //     url: 'https://api.openai.com/v1/completions',
-//     //     model: "gpt-3.5-turbo",
-//     //     messages: [{role: "user", content: prompt}]
+function sendIt(event, recipients, subject, body) {
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  });
 
-//     // })
-//     // .then(function (response) {
+  var mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: recipients,
+    subject: subject,
+    text: body
+  };
 
-//     // })
-//     //   .catch(function (error) {
-//     //     console.log(error);
-//     // });
-//     const completion = await openai.createChatCompletion({
-//         model: "gpt-3.5-turbo",
-//         messages: [{role: "user", content: inputPrompt}],
-//       });
-//     chatGPTResponse = completion
-//     return chatGPTResponse
-// }
+  transporter.sendMail(mailOptions, function (err, info) {
+    if (err) console.log(err);
+    else dialog.showMessageBox( "Email Sent!");
+  });
+}
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -59,7 +53,7 @@ function createWindow () {
 }
 
 app.whenReady().then(() => {
-//   ipcMain.handle('update-subject', updateSubject)
+  ipcMain.handle('send-mail', sendIt)
   createWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
