@@ -29,12 +29,14 @@ function sendIt(event, recipients, subject, body) {
 
   transporter.sendMail(mailOptions, function (err, info) {
     if (err) console.log(err);
-    else dialog.showMessageBox( "Email Sent!");
+    else dialog.showMessageBox({message: "Email Sent!", buttons:[]});
   });
 }
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
