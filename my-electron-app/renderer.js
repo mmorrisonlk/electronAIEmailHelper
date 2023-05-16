@@ -12,7 +12,7 @@ chatGPTButton.addEventListener('click', async () => {
     let response = await window.electronAPI.makeRequest(prompt)
     console.log("Output message", response)
     bodySection.innerHTML = response
-})
+});
 
 sendEmailButton.addEventListener('click', async () => {
     const recipients = recipientListInput.value;
@@ -20,4 +20,4 @@ sendEmailButton.addEventListener('click', async () => {
     const body = bodySectionInput.innerHTML;
     console.log("Input message", recipients, subject, body)
     await window.electronAPI.sendIt(recipients, subject, body)
-})
+});
