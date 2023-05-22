@@ -15,8 +15,8 @@ chatGPTButton.addEventListener('click', async () => {
 });
 
 sendEmailButton.addEventListener('click', async () => {
-    const recipients = recipientListInput.value;
-    const subject = subjectLineInput.value;
+    const recipients = recipientListInput.innerHTML;
+    const subject = subjectLineInput.innerHTML;
     const body = bodySectionInput.innerHTML;
     console.log("Input message", recipients, subject, body)
     await window.electronAPI.sendIt(recipients, subject, body)
